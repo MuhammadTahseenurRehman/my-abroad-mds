@@ -14,7 +14,78 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      providers: {
+        Row: {
+          accepted_insurance: string[]
+          address: string | null
+          bio: string | null
+          city: string
+          country: string
+          created_at: string
+          email: string | null
+          id: string
+          languages: string[]
+          latitude: number | null
+          longitude: number | null
+          name: string
+          phone: string | null
+          photo_url: string | null
+          price_tier: number
+          rating: number
+          review_count: number
+          specialty: string
+          updated_at: string
+          verified: boolean
+          website: string | null
+        }
+        Insert: {
+          accepted_insurance?: string[]
+          address?: string | null
+          bio?: string | null
+          city: string
+          country: string
+          created_at?: string
+          email?: string | null
+          id?: string
+          languages?: string[]
+          latitude?: number | null
+          longitude?: number | null
+          name: string
+          phone?: string | null
+          photo_url?: string | null
+          price_tier?: number
+          rating?: number
+          review_count?: number
+          specialty: string
+          updated_at?: string
+          verified?: boolean
+          website?: string | null
+        }
+        Update: {
+          accepted_insurance?: string[]
+          address?: string | null
+          bio?: string | null
+          city?: string
+          country?: string
+          created_at?: string
+          email?: string | null
+          id?: string
+          languages?: string[]
+          latitude?: number | null
+          longitude?: number | null
+          name?: string
+          phone?: string | null
+          photo_url?: string | null
+          price_tier?: number
+          rating?: number
+          review_count?: number
+          specialty?: string
+          updated_at?: string
+          verified?: boolean
+          website?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
