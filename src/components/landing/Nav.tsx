@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Globe2, Menu } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const links = [
   { href: "#features", label: "Why us" },
@@ -31,8 +32,8 @@ export const Nav = () => {
           ))}
         </ul>
         <div className="hidden items-center gap-2 md:flex">
-          <Button variant="ghost" size="sm">Sign in</Button>
-          <Button variant="hero" size="sm">Get started</Button>
+          <Button asChild variant="ghost" size="sm"><Link to="/auth">Sign in</Link></Button>
+          <Button asChild variant="hero" size="sm"><Link to="/auth">Get started</Link></Button>
         </div>
         <button
           className="grid h-10 w-10 place-items-center rounded-md md:hidden"
@@ -57,8 +58,8 @@ export const Nav = () => {
               </li>
             ))}
             <li className="mt-2 flex gap-2 px-3">
-              <Button variant="ghost" size="sm" className="flex-1">Sign in</Button>
-              <Button variant="hero" size="sm" className="flex-1">Get started</Button>
+              <Button asChild variant="ghost" size="sm" className="flex-1"><Link to="/auth">Sign in</Link></Button>
+              <Button asChild variant="hero" size="sm" className="flex-1"><Link to="/auth">Get started</Link></Button>
             </li>
           </ul>
         </div>
