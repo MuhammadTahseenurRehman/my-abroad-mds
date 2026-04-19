@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
 import { Globe2, Loader2 } from "lucide-react";
 
@@ -27,28 +26,6 @@ const Auth = () => {
   useEffect(() => {
     if (!loading && user) navigate("/app", { replace: true });
   }, [user, loading, navigate]);
-
-  const handleSignUp = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const parsed = credSchema.safeParse({ email, password });
-    if (!parsed.success) {
-      toast.error(parsed.error.issues[0].message);
-      return;
-    }
-    setBusy(true);
-    const { error } = await supabase.auth.signUp({
-      email: parsed.data.email,
-      password: parsed.data.password,
-      options: { emailRedirectTo: `${window.location.origin}/app` },
-    });
-    setBusy(false);
-    if (error) {
-      toast.error(error.message.includes("registered") ? "This email is already registered. Try signing in." : error.message);
-      return;
-    }
-    toast.success("Account created. Welcome aboard!");
-    navigate("/app", { replace: true });
-  };
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -88,55 +65,34 @@ const Auth = () => {
           <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-primary text-primary-foreground">
             <Globe2 className="h-5 w-5" />
           </span>
-          GlobalCare
+          My Abroad Care
         </Link>
         <Card className="border-border/60 shadow-elegant">
           <CardHeader className="text-center">
-            <CardTitle className="font-display text-2xl">Welcome</CardTitle>
-            <CardDescription>Sign in or create an account to access your travel-health dashboard.</CardDescription>
+            <CardTitle className="font-display text-2xl">Sign in</CardTitle>
+            <CardDescription>
+              New accounts are created when you{" "}
+              <Link to="/memberships" className="font-medium text-primary underline-offset-4 hover:underline">
+                purchase a membership
+              </Link>{" "}
+              — add to cart, then checkout with your name, email, and password.
+            </CardDescription>
           </CardHeader>
           <CardContent>
-            <Tabs defaultValue="signin" className="w-full">
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="signin">Sign in</TabsTrigger>
-                <TabsTrigger value="signup">Sign up</TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="signin" className="mt-4">
-                <form onSubmit={handleSignIn} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="email-in">Email</Label>
-                    <Input id="email-in" type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="pw-in">Password</Label>
-                    <Input id="pw-in" type="password" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                  </div>
-                  <Button type="submit" variant="hero" className="w-full" disabled={busy}>
-                    {busy && <Loader2 className="h-4 w-4 animate-spin" />}
-                    Sign in
-                  </Button>
-                </form>
-              </TabsContent>
-
-              <TabsContent value="signup" className="mt-4">
-                <form onSubmit={handleSignUp} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="email-up">Email</Label>
-                    <Input id="email-up" type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="pw-up">Password</Label>
-                    <Input id="pw-up" type="password" autoComplete="new-password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={8} />
-                    <p className="text-xs text-muted-foreground">At least 8 characters.</p>
-                  </div>
-                  <Button type="submit" variant="hero" className="w-full" disabled={busy}>
-                    {busy && <Loader2 className="h-4 w-4 animate-spin" />}
-                    Create account
-                  </Button>
-                </form>
-              </TabsContent>
-            </Tabs>
+            <form onSubmit={handleSignIn} className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="email-in">Email</Label>
+                <Input id="email-in" type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="pw-in">Password</Label>
+                <Input id="pw-in" type="password" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+              </div>
+              <Button type="submit" variant="hero" className="w-full" disabled={busy}>
+                {busy && <Loader2 className="h-4 w-4 animate-spin" />}
+                Sign in
+              </Button>
+            </form>
 
             <div className="my-6 flex items-center gap-3">
               <span className="h-px flex-1 bg-border" />

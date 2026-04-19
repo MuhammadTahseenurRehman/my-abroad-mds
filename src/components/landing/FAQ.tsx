@@ -3,7 +3,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 const faqs = [
   {
     q: "Where is my medical data stored?",
-    a: "By default your records live encrypted on your device (PIMS 2.0). You can opt to mirror them to your secure GlobalCare vault, but they are never sold or shared without your explicit, time-bound consent.",
+    a: "By default your records live encrypted on your device (PIMS 2.0). You can opt to mirror them to your secure My Abroad Care vault, but they are never sold or shared without your explicit, time-bound consent.",
   },
   {
     q: "How does the AI Risk Advisor work?",
@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     q: "Can I use insurance?",
-    a: "GlobalCare is not insurance, but our directory shows which providers accept major international plans. Membership receipts are itemized for easy reimbursement.",
+    a: "My Abroad Care is not insurance, but our directory shows which providers accept major international plans. Membership receipts are itemized for easy reimbursement.",
   },
   {
     q: "Is the platform available worldwide?",

@@ -21,8 +21,8 @@ const schema = z.object({
 
 const Contact = () => {
   useSEO({
-    title: "Contact — GlobalCare Abroad",
-    description: "Get in touch with the GlobalCare team. Sales, partnerships, doctor onboarding, and support inquiries welcome.",
+    title: "Contact — My Abroad Care Abroad",
+    description: "Get in touch with the My Abroad Care team. Sales, partnerships, doctor onboarding, and support inquiries welcome.",
     path: "/contact",
   });
 
@@ -68,7 +68,7 @@ const Contact = () => {
             <CardContent className="space-y-2 p-6">
               <Mail className="h-5 w-5 text-primary" />
               <h3 className="font-display text-lg font-semibold">Email</h3>
-              <p className="text-sm text-muted-foreground">hello@globalcareabroad.com</p>
+              <p className="text-sm text-muted-foreground">hello@My Abroad Careabroad.com</p>
             </CardContent>
           </Card>
           <Card className="border-border/60">

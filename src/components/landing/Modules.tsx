@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 import { Search, MapPin, ShieldCheck, Stethoscope, FolderLock, Users } from "lucide-react";
 
 const modules = [
-  { icon: Search, title: "Doctor Directory", body: "Search English-speaking providers by city, specialty, insurance, rating. Map &amp; list view.", tag: "Find care" },
-  { icon: FolderLock, title: "PIMS 2.0 Vault", body: "On-device encrypted storage for records, prescriptions, allergies. Consent-based sharing.", tag: "Stay in control" },
-  { icon: Stethoscope, title: "Telemedicine", body: "Instant or scheduled video / audio consults. Translator &amp; record sync built in.", tag: "Talk now" },
-  { icon: MapPin, title: "Travel Risk Map", body: "Live destination intelligence: outbreaks, climate, altitude, prescription availability.", tag: "Plan ahead" },
-  { icon: ShieldCheck, title: "Memberships", body: "Personal, family, student, and corporate plans. One-click upgrade, transparent pricing.", tag: "Stay covered" },
-  { icon: Users, title: "Provider Network", body: "Clinics &amp; doctors join in minutes, receive qualified leads, no booking fees.", tag: "For providers" },
+  { icon: Search, title: "Doctor Directory", body: "Search English-speaking providers by city, specialty, insurance, rating. Map &amp; list view.", tag: "Find care", href: "/find-doctors", linkLabel: "Browse directory" },
+  { icon: FolderLock, title: "PIMS 2.0 Vault", body: "On-device encrypted storage for records, prescriptions, allergies. Consent-based sharing.", tag: "Stay in control", href: "/health-vault", linkLabel: "Explore the vault" },
+  { icon: Stethoscope, title: "Telemedicine", body: "Instant or scheduled video / audio consults. Translator &amp; record sync built in.", tag: "Talk now", href: "/memberships", linkLabel: "View memberships" },
+  { icon: MapPin, title: "Travel Risk Map", body: "Live destination intelligence: outbreaks, climate, altitude, prescription availability.", tag: "Plan ahead", href: "/app/advisor", linkLabel: "Open AI advisor" },
+  { icon: ShieldCheck, title: "Memberships", body: "Personal, family, student, and corporate plans. One-click upgrade, transparent pricing.", tag: "Stay covered", href: "/memberships", linkLabel: "Compare plans" },
+  { icon: Users, title: "Provider Network", body: "Clinics &amp; doctors join in minutes, receive qualified leads, no booking fees.", tag: "For providers", href: "/for-doctors", linkLabel: "For doctors" },
 ];
 
 export const Modules = () => (
@@ -19,7 +20,7 @@ export const Modules = () => (
         </h2>
       </div>
       <p className="text-muted-foreground md:text-lg">
-        From the moment you book a flight to the second you land back home — GlobalCare keeps
+        From the moment you book a flight to the second you land back home — My Abroad Care keeps
         your health intelligence ready, private, and one tap away.
       </p>
     </div>
@@ -35,6 +36,12 @@ export const Modules = () => (
           </div>
           <h3 className="mb-2 font-display text-xl font-semibold">{m.title}</h3>
           <p className="text-sm leading-relaxed text-muted-foreground" dangerouslySetInnerHTML={{ __html: m.body }} />
+          <Link
+            to={m.href}
+            className="mt-4 inline-flex text-sm font-medium text-primary underline-offset-4 transition-colors hover:underline"
+          >
+            {m.linkLabel} →
+          </Link>
         </article>
       ))}
     </div>

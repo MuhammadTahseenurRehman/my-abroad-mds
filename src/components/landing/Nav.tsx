@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Globe2, Menu, Moon, Sun } from "lucide-react";
+import { Globe2, Menu, Moon, ShoppingCart, Sun } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -30,6 +31,7 @@ export const Nav = () => {
   const [open, setOpen] = useState(false);
   const { isDark, toggle } = useTheme();
   const { pathname } = useLocation();
+  const { itemCount } = useCart();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-xl">
@@ -38,7 +40,7 @@ export const Nav = () => {
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-primary text-primary-foreground">
             <Globe2 className="h-4 w-4" />
           </span>
-          GlobalCare
+          My Abroad Care
         </Link>
 
         <ul className="hidden items-center gap-1 lg:flex">
@@ -64,8 +66,18 @@ export const Nav = () => {
           <Button variant="ghost" size="icon" onClick={toggle} aria-label="Toggle theme">
             {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>
+          <Button asChild variant="ghost" size="icon" className="relative" aria-label="Shopping cart">
+            <Link to="/cart">
+              <ShoppingCart className="h-4 w-4" />
+              {itemCount > 0 && (
+                <span className="absolute -right-0.5 -top-0.5 grid min-h-[1.125rem] min-w-[1.125rem] place-items-center rounded-full bg-accent px-1 text-[10px] font-semibold text-accent-foreground">
+                  {itemCount > 9 ? "9+" : itemCount}
+                </span>
+              )}
+            </Link>
+          </Button>
           <Button asChild variant="ghost" size="sm"><Link to="/auth">Sign in</Link></Button>
-          <Button asChild variant="hero" size="sm"><Link to="/auth">Get started</Link></Button>
+          <Button asChild variant="hero" size="sm"><Link to="/memberships">Get started</Link></Button>
         </div>
 
         <button
@@ -94,12 +106,15 @@ export const Nav = () => {
                 </Link>
               </li>
             ))}
-            <li className="mt-2 flex gap-2 px-3">
-              <Button asChild variant="ghost" size="sm" className="flex-1" onClick={() => setOpen(false)}>
+            <li className="mt-2 grid grid-cols-2 gap-2 px-3">
+              <Button asChild variant="outline" size="sm" className="col-span-2" onClick={() => setOpen(false)}>
+                <Link to="/cart">Cart{itemCount > 0 ? ` (${itemCount})` : ""}</Link>
+              </Button>
+              <Button asChild variant="ghost" size="sm" onClick={() => setOpen(false)}>
                 <Link to="/auth">Sign in</Link>
               </Button>
-              <Button asChild variant="hero" size="sm" className="flex-1" onClick={() => setOpen(false)}>
-                <Link to="/auth">Get started</Link>
+              <Button asChild variant="hero" size="sm" onClick={() => setOpen(false)}>
+                <Link to="/memberships">Get started</Link>
               </Button>
             </li>
             <li className="px-3">

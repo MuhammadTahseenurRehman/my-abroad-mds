@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { ReactNode, useLayoutEffect, useRef } from "react";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Globe2, LayoutDashboard, Stethoscope, Sparkles, LogOut } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
@@ -14,6 +14,12 @@ const items = [
 export const AppShell = ({ children }: { children: ReactNode }) => {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const mainRef = useRef<HTMLElement>(null);
+
+  useLayoutEffect(() => {
+    mainRef.current?.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
 
   const handleSignOut = async () => {
     await signOut();
@@ -27,7 +33,7 @@ export const AppShell = ({ children }: { children: ReactNode }) => {
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-primary text-primary-foreground">
             <Globe2 className="h-4 w-4" />
           </span>
-          GlobalCare
+          My Abroad Care
         </Link>
         <nav className="flex-1 space-y-1 p-4">
           {items.map(({ to, label, icon: Icon, end }) => (
@@ -61,7 +67,7 @@ export const AppShell = ({ children }: { children: ReactNode }) => {
             <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-primary text-primary-foreground">
               <Globe2 className="h-4 w-4" />
             </span>
-            GlobalCare
+            My Abroad Care
           </Link>
           <Button variant="ghost" size="sm" onClick={handleSignOut}>
             <LogOut className="h-4 w-4" />
@@ -85,7 +91,9 @@ export const AppShell = ({ children }: { children: ReactNode }) => {
             </NavLink>
           ))}
         </nav>
-        <main className="flex-1 overflow-y-auto">{children}</main>
+        <main ref={mainRef} className="flex-1 overflow-y-auto">
+          {children}
+        </main>
       </div>
     </div>
   );

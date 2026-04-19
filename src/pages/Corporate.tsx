@@ -21,7 +21,7 @@ const tiers = [
 
 const Corporate = () => {
   useSEO({
-    title: "Corporate Solutions — GlobalCare for Business",
+    title: "Corporate Solutions — My Abroad Care for Business",
     description: "Protect your global workforce with travel healthcare, telemedicine, and risk analytics. SSO, SCIM, and country-level compliance.",
     path: "/corporate-solutions",
   });

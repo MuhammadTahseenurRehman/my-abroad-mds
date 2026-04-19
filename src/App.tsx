@@ -3,14 +3,19 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { CartProvider } from "@/contexts/CartContext";
 import { AuthProvider } from "@/hooks/useAuth";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 import { AppShell } from "@/components/AppShell";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Auth from "./pages/Auth.tsx";
 import About from "./pages/About.tsx";
 import Memberships from "./pages/Memberships.tsx";
+import Checkout from "./pages/Checkout.tsx";
+import Cart from "./pages/Cart.tsx";
+import ProductMembership from "./pages/ProductMembership.tsx";
 import FindDoctors from "./pages/FindDoctors.tsx";
 import CorporatePage from "./pages/Corporate.tsx";
 import ForDoctors from "./pages/ForDoctors.tsx";
@@ -30,12 +35,17 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <AuthProvider>
-          <Routes>
+        <CartProvider>
+          <ScrollToTop />
+          <AuthProvider>
+            <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/about" element={<About />} />
             <Route path="/memberships" element={<Memberships />} />
+            <Route path="/product/:planId" element={<ProductMembership />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="/find-doctors" element={<FindDoctors />} />
             <Route path="/corporate-solutions" element={<CorporatePage />} />
             <Route path="/for-doctors" element={<ForDoctors />} />
@@ -76,8 +86,9 @@ const App = () => (
             />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
-          </Routes>
-        </AuthProvider>
+            </Routes>
+          </AuthProvider>
+        </CartProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

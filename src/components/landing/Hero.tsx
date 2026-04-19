@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
@@ -24,17 +25,19 @@ export const Hero = () => {
             </span>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            Plan smarter. Travel safer. GlobalCare connects you to vetted English-speaking
+            Plan smarter. Travel safer. My Abroad Care connects you to vetted English-speaking
             doctors in 100+ countries, a private health vault, and on-demand telemedicine —
             all guided by AI built for travelers, expats, and global teams.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button variant="hero" size="lg" className="group">
-              Start your trip plan
-              <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <Button asChild variant="hero" size="lg" className="group">
+              <Link to="/memberships">
+                Start your trip plan
+                <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
             </Button>
-            <Button variant="outline" size="lg">
-              See how it works
+            <Button asChild variant="outline" size="lg">
+              <a href="#pricing">See how it works</a>
             </Button>
           </div>
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">

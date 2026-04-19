@@ -24,7 +24,7 @@ const posts: Post[] = [
 
 const Blog = () => {
   useSEO({
-    title: "Blog — Travel health insights from GlobalCare",
+    title: "Blog — Travel health insights from My Abroad Care",
     description: "Practical guides, outbreak updates, and policy explainers for travelers, families, and corporate mobility teams.",
     path: "/blog",
   });

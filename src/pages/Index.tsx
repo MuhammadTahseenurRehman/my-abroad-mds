@@ -13,7 +13,7 @@ import { useEffect } from "react";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "GlobalCare Abroad — Healthcare for Travelers, Powered by AI";
+    document.title = "My Abroad Care Abroad — Healthcare for Travelers, Powered by AI";
     const desc = "Vetted doctors in 100+ countries, secure health vault, telemedicine, and AI risk advisor. Prepare smarter, travel safer.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {

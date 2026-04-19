@@ -33,7 +33,7 @@ export const Footer = () => (
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-primary text-primary-foreground">
             <Globe2 className="h-4 w-4" />
           </span>
-          GlobalCare
+          My Abroad Care
         </Link>
         <p className="mt-4 max-w-sm text-sm text-muted-foreground">
           Healthcare abroad, powered by intelligence. Prepare smarter, travel safer.
@@ -50,8 +50,8 @@ export const Footer = () => (
     </div>
     <div className="border-t border-border">
       <div className="container flex flex-col items-center justify-between gap-3 py-5 text-xs text-muted-foreground md:flex-row">
-        <p>© {new Date().getFullYear()} GlobalCare Abroad. All rights reserved.</p>
-        <p>Built for the next generation of global healthcare.</p>
+        <p>© {new Date().getFullYear()} My Abroad Care Abroad. All rights reserved.</p>
+        <p>Design and development by <span className="text-primary">MTUR</span>.</p>
       </div>
     </div>
   </footer>

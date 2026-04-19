@@ -13,7 +13,7 @@ const values = [
 
 const About = () => {
   useSEO({
-    title: "About GlobalCare Abroad — Travel healthcare, reimagined",
+    title: "About My Abroad Care Abroad — Travel healthcare, reimagined",
     description: "We help travelers, students, families, and corporations access trusted English-speaking healthcare in 100+ countries — with AI-powered preparation tools.",
     path: "/about",
   });
@@ -31,13 +31,13 @@ const About = () => {
           <h2 className="font-display text-3xl font-semibold tracking-tight">Our story</h2>
           <div className="mt-4 space-y-4 leading-relaxed text-foreground/80">
             <p>
-              GlobalCare Abroad started with a simple, stressful experience: a chronic-illness traveler stranded in Bangkok, unable to find an English-speaking specialist or get records to a local doctor.
+              My Abroad Care Abroad started with a simple, stressful experience: a chronic-illness traveler stranded in Bangkok, unable to find an English-speaking specialist or get records to a local doctor.
             </p>
             <p>
               We believe preparation — not panic — is the answer. So we built a platform that helps travelers plan ahead with vetted providers, secure their medical history on-device, and get destination-specific health intelligence powered by AI.
             </p>
             <p>
-              Today, members in over 100 countries trust GlobalCare to bridge the gap between their home and wherever life takes them.
+              Today, members in over 100 countries trust My Abroad Care to bridge the gap between their home and wherever life takes them.
             </p>
           </div>
         </div>

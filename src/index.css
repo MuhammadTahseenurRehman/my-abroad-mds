@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* GlobalCare Abroad — design system
+/* My Abroad Care Abroad — design system
    Editorial healthcare-tech: deep teal ink, warm coral accent, soft sand surfaces.
    All colors HSL.
 */
@@ -93,6 +93,16 @@
     --border: 200 30% 18%;
     --input: 200 30% 18%;
     --ring: 199 75% 60%;
+
+    /* Match light-mode structure: layered glows + base wash (no stray white/sand from :root) */
+    --gradient-hero: radial-gradient(1200px 600px at 82% -8%, hsl(var(--primary-glow) / 0.14), transparent 58%),
+                     radial-gradient(900px 480px at -5% 105%, hsl(var(--accent) / 0.09), transparent 58%),
+                     linear-gradient(180deg, hsl(var(--background)) 0%, hsl(200 48% 7.5%) 100%);
+    --gradient-card: linear-gradient(165deg, hsl(200 42% 11%) 0%, hsl(200 38% 13.5%) 100%);
+
+    --shadow-soft: 0 1px 2px hsl(0 0% 0% / 0.22), 0 10px 28px -14px hsl(0 0% 0% / 0.45);
+    --shadow-elegant: 0 24px 56px -24px hsl(0 0% 0% / 0.55);
+    --shadow-glow: 0 0 72px hsl(var(--primary-glow) / 0.12);
   }
 }
 

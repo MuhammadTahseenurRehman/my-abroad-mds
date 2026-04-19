@@ -14,7 +14,7 @@ const items = [
 export const Differentiators = () => (
   <section id="features" className="container py-24">
     <div className="mx-auto max-w-2xl text-center">
-      <p className="mb-3 text-sm font-medium uppercase tracking-widest text-accent">Why GlobalCare</p>
+      <p className="mb-3 text-sm font-medium uppercase tracking-widest text-accent">Why My Abroad Care</p>
       <h2 className="font-display text-4xl font-semibold leading-tight text-foreground md:text-5xl">
         The next generation of travel healthcare.
       </h2>

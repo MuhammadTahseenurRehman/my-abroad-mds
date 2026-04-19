@@ -8,13 +8,13 @@ import { Link } from "react-router-dom";
 
 const benefits = [
   { icon: Users, title: "International patient leads", text: "Get matched with travelers actively searching for English-speaking doctors in your city." },
-  { icon: Calendar, title: "Modern booking tools", text: "Optional telemedicine integration so patients can book and consult directly through GlobalCare." },
+  { icon: Calendar, title: "Modern booking tools", text: "Optional telemedicine integration so patients can book and consult directly through My Abroad Care." },
   { icon: Globe2, title: "Global visibility", text: "Featured placement across 100+ country guides and AI-generated travel recommendations." },
 ];
 
 const ForDoctors = () => {
   useSEO({
-    title: "For Doctors — Partner with GlobalCare Abroad",
+    title: "For Doctors — Partner with My Abroad Care Abroad",
     description: "Join a curated global network of English-speaking physicians and clinics. Free directory listing, optional telemedicine bookings, and patient leads.",
     path: "/for-doctors",
   });
@@ -24,7 +24,7 @@ const ForDoctors = () => {
       <PageHero
         eyebrow="For Doctors & Clinics"
         title={<>Care for the world's <span className="text-primary">most informed travelers</span></>}
-        description="Join GlobalCare's curated network of English-speaking clinicians and reach engaged international patients in your city."
+        description="Join My Abroad Care's curated network of English-speaking clinicians and reach engaged international patients in your city."
       />
 
       <section className="container grid gap-6 py-16 md:grid-cols-3">

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Building2, BarChart3, Shield, Globe2 } from "lucide-react";
 
@@ -19,11 +20,15 @@ export const Corporate = () => (
         </h2>
         <p className="mt-5 max-w-md text-muted-foreground">
           From small teams sending consultants abroad to multinationals managing global mobility —
-          GlobalCare gives HR, mobility, and security teams a single source of truth.
+          My Abroad Care gives HR, mobility, and security teams a single source of truth.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <Button variant="hero" size="lg">Talk to sales</Button>
-          <Button variant="outline" size="lg">Download brief</Button>
+          <Button asChild variant="hero" size="lg">
+            <Link to="/contact">Talk to sales</Link>
+          </Button>
+          <Button asChild variant="outline" size="lg">
+            <Link to="/corporate-solutions">Corporate solutions</Link>
+          </Button>
         </div>
       </div>
 
